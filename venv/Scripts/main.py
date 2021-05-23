@@ -72,15 +72,13 @@ while(running):
 
     try:
         movimiento = board.push_san(move)
-        escaque_origen = chess.square_name(movimiento.from_square) # mover la pieza de la posicion escaque_origen  a escaque_destino
-        escaque_destino = chess.square_name(movimiento.to_square)
-        piece_to_move = mychessboard.get_turtle_pos(escaque_origen)
-        piece_to_move.setposition(mychessboard.chess_coord[escaque_destino])
-
-
     except :
         print("Esa jugada no es posible o no existe")
 
+    escaque_origen = chess.square_name(movimiento.from_square)  # mover la pieza de la posicion escaque_origen  a escaque_destino
+    escaque_destino = chess.square_name(movimiento.to_square)
+    piece_to_move = mychessboard.get_turtle_pos(escaque_origen)
+    piece_to_move.setposition(mychessboard.chess_coord[escaque_destino])
     player1.has_to_move = not(player1.has_to_move)
     player2.has_to_move = not(player1.has_to_move)
     
