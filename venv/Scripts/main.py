@@ -84,21 +84,20 @@ while(running):
         print("Turno de negras ")
     print(board)
     print("Mencione f->casilla_origen")
-    casilla_origen = get_audio()
-    casilla_origen = int(casilla_origen.replace("f",""))
-    casilla_origen = chess.square_name(casilla_origen)
-    casilla_destino = get_audio()
-    casilla_destino = int(casilla_destino.replace("f",""))
-    casilla_destino = chess.square_name(casilla_destino)
-    move = chess.Move.from_uci(casilla_origen+casilla_destino)
-    move = board.san(move)
     try:
+        casilla_origen = get_audio()
+        casilla_origen = int(casilla_origen.replace("f", ""))
+        casilla_origen = chess.square_name(casilla_origen)
+        casilla_destino = get_audio()
+        casilla_destino = int(casilla_destino.replace("f", ""))
+        casilla_destino = chess.square_name(casilla_destino)
+        move = chess.Move.from_uci(casilla_origen + casilla_destino)
+        move = board.san(move)
         movimiento = board.push_san(move)
         escaque_origen = chess.square_name(movimiento.from_square)  # mover la pieza de la posicion escaque_origen  a escaque_destino
         escaque_destino = chess.square_name(movimiento.to_square)
         piece_to_move = mychessboard.get_turtle_pos(escaque_origen)
         piece_to_move.setposition(mychessboard.chess_coord[escaque_destino])
-
     except :
         print("Esa jugada no es posible o no existe")
         move = turtle.textinput("Mejor por el movimiento aqui","Mov : ")
@@ -108,6 +107,9 @@ while(running):
         piece_to_move = mychessboard.get_turtle_pos(escaque_origen)
         piece_to_move.setposition(mychessboard.chess_coord[escaque_destino])
 
+    if board.is_check():
+        print("JAQUE MATE")
+        board.clear_board()
     player1.has_to_move = not(player1.has_to_move)
     player2.has_to_move = not(player1.has_to_move)
     
