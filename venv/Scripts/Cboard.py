@@ -54,6 +54,12 @@ class Board(Turtle):
             if p.position() == (pos[0],pos[1]):
                 return p
 
+    def delete_turtle(self,sqr_b):
+        piece = self.get_turtle_pos(sqr_b)
+        if piece != None:
+            piece.hideturtle()
+
+
     def putWhitePawns(self,white_pawns_list):
         for i in range(8):
             sq = self.squares[1][i]
