@@ -27,7 +27,6 @@ def get_audio():
             print("Exception " + str(e))
     return said
 
-
 screen = turtle.Screen()
 screen.bgcolor("indigo")
 screen.title("Blindfold Chess")
@@ -96,6 +95,7 @@ while(running):
         movimiento = board.push_san(move)
         escaque_origen = chess.square_name(movimiento.from_square)  # mover la pieza de la posicion escaque_origen  a escaque_destino
         escaque_destino = chess.square_name(movimiento.to_square)
+        mychessboard.show_turtle(escaque_origen)
         mychessboard.delete_turtle(escaque_destino)
         piece_to_move = mychessboard.get_turtle_pos(escaque_origen)
         piece_to_move.setposition(mychessboard.chess_coord[escaque_destino])
@@ -105,6 +105,7 @@ while(running):
         movimiento = board.push_san(move)
         escaque_origen = chess.square_name(movimiento.from_square)  # mover la pieza de la posicion escaque_origen  a escaque_destino
         escaque_destino = chess.square_name(movimiento.to_square)
+        mychessboard.show_turtle(escaque_origen)
         mychessboard.delete_turtle(escaque_destino)
         piece_to_move = mychessboard.get_turtle_pos(escaque_origen)
         piece_to_move.setposition(mychessboard.chess_coord[escaque_destino])

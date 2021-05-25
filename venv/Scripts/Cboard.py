@@ -57,8 +57,13 @@ class Board(Turtle):
     def delete_turtle(self,sqr_b):
         piece = self.get_turtle_pos(sqr_b)
         if piece != None:
-            piece.hideturtle()
+            piece.speed(0)
+            piece.setposition(-1000,-1000)
 
+    def show_turtle(self,sqr_a):
+        piece = self.get_turtle_pos(sqr_a)
+        if piece != None:
+            piece.showturtle()
 
     def putWhitePawns(self,white_pawns_list):
         for i in range(8):
