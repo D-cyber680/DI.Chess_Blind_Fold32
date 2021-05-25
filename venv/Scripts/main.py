@@ -110,8 +110,8 @@ while(running):
         piece_to_move = mychessboard.get_turtle_pos(escaque_origen)
         piece_to_move.setposition(mychessboard.chess_coord[escaque_destino])
 
-    if board.is_check():
-        print("JAQUE MATE")
+    if board.is_checkmate():
+        print("CHECK MATE")
         board.reset_board()
         running = False
     player1.has_to_move = not(player1.has_to_move)
